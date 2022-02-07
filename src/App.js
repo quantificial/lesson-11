@@ -31,11 +31,22 @@ class App extends React.Component {
               id: snapShot.id,
               ...snapShot.data()
             }
-          });
+          }, 
+          () => {
+            console.log("snapshot>>>>");console.log(this.state.currentUser);
+            console.log("userAuth>>>>");console.log(userAuth);
+            }
+          );
+
+          
         });
       }
 
+      // set to null if userAuth is null ?
+      // should it be used in else block?
       this.setState({ currentUser: userAuth });
+
+      console.log("outside: " + this.state.currentUser);
     });
   }
 
